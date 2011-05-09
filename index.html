@@ -10,7 +10,29 @@
   </head>
   <body>
     <div data-role="page" data-theme="b" id="jqm-home">
-      <a href="index.html" data-role="button">Link button</a> 
+      <div data-role="header">
+        <h1>Page Title</h1> 
+      </div>
+      <div data-role="content">     
+        <ul id="list" data-role="listview" data-theme="g">
+        </ul>
+      </div>
+      <div data-role="footer"></div>
     </div>
+    
+    <div id="page_template">
+      <div data-role="page">
+        <div data-role="header">
+          <h1>Foo</h1>
+        </div><!-- /header -->
+        <div data-role="content">
+          <div data-role="fieldcontain">
+            <fieldset data-role="controlgroup" data-theme="g">
+            </fieldset>
+          </div>
+        </div>
+      </div>
+    </div>
+    
   </body>
 </html>
