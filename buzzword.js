@@ -1,4 +1,10 @@
 $(document).bind("ready", function(){
+  
+  var wl = window.location;
+  if (wl.hash) {
+    wl.href = wl.protocol + wl.port + '//' + wl.host + wl.pathname;
+  }
+  
   $.ajax({
     url: "http://buzzwords.tladesignz.com/data.pl",
     dataType: "jsonp",
@@ -16,7 +22,7 @@ $(document).bind("ready", function(){
         html = "";
         for(i = 0;i<json[cat].length;i++) {
           tmp = json[cat][i]+"-"+cat;
-          html += '<input type="checkbox" name="checkbox-'+tmp+'" id="checkbox-'+tmp+'" class="custom" /><label for="checkbox-'+tmp+'">'+json[cat][i]+'</label>';
+          html += '<input type="checkbox" name="checkbox-'+i+'" id="checkbox-'+i+'" class="custom" /><label for="checkbox-'+i+'">'+json[cat][i]+'</label>';
         }
         page.find("fieldset[data-role=controlgroup]").html(html);
         page = $("body").append(page);
@@ -25,4 +31,4 @@ $(document).bind("ready", function(){
       $('#list').listview('refresh');
     }
   });
-})
+});
