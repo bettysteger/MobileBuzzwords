@@ -35,6 +35,7 @@ $(document).bind("ready", function(){
           tmp = bingoWords[i]+"-"+cat;
           html += '<input type="checkbox" name="checkbox-'+i+'" id="checkbox-'+i+'" class="custom" /><label for="checkbox-'+i+'">'+bingoWords[i]+'</label>';
         }
+        page.find("h1").text(cat);
         page.find("fieldset[data-role=controlgroup]").html(html);
         page = $("body").append(page);
       }
