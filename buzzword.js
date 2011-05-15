@@ -9,7 +9,7 @@ $(document).bind("ready", function(){
     url: "http://buzzwords.tladesignz.com/data.pl",
     dataType: "jsonp",
     success: function(json) {
-      var cat, page, i, html, tmp, bingoWords, allBingoWords, audiohtml;
+      var cat, page, i, html, tmp, bingoWords, allBingoWords;
       var list = $("#list");
       
       for(cat in json) {
@@ -53,8 +53,7 @@ $(document).bind("ready", function(){
       }
     });
     if(checkedCount > 4) {
-      audiohtml = '<audio src="bullshit.ogg" autoplay="true">Your browser does not support the audio element.</audio>';
-      $("body").append(audiohtml);
+      $('audio').get(0).play();
       checkboxes.removeAttr('checked').checkboxradio("refresh");
     }
   });
