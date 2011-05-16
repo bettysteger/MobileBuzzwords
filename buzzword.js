@@ -46,7 +46,7 @@ $(document).bind("ready", function(){
   
   $("input[type=checkbox]").live('change', function(ev) {
     var fieldset = $(ev.currentTarget).closest("fieldset");
-    var checkboxes = $(ev.currentTarget).closest("fieldset").find("input[type=checkbox]");
+    var checkboxes = fieldset.find("input[type=checkbox]");
     var checkedCount = fieldset.find("input[type=checkbox]:checked").length;
     if(checkedCount > 4) {
       $('audio').get(0).play();
