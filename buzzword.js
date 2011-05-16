@@ -45,13 +45,9 @@ $(document).bind("ready", function(){
   });
   
   $("input[type=checkbox]").live('change', function(ev) {
-    var checkedCount=0;
+    var fieldset = $(ev.currentTarget).closest("fieldset");
     var checkboxes = $(ev.currentTarget).closest("fieldset").find("input[type=checkbox]");
-    checkboxes.each(function(i, checkbox) {
-      if($(checkbox).is(":checked")) {
-        checkedCount++;
-      }
-    });
+    var checkedCount = fieldset.find("input[type=checkbox]:checked").length;
     if(checkedCount > 4) {
       $('audio').get(0).play();
       checkboxes.removeAttr('checked').checkboxradio("refresh");
