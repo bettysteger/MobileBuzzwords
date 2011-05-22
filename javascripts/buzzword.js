@@ -7,8 +7,9 @@ $(document).bind("ready", function(){
 
 if (supports_html5_storage()) {
   if (!localStorage["buzzwords"]) {
-    console.log(get_buzzwords());
-    //init(get_buzzwords);
+    get_buzzwords();
+  } else {
+    init(JSON.parse(localStorage["buzzwords"]));
   }
 } else {
   get_buzzwords();
@@ -74,6 +75,10 @@ function get_buzzwords() {
   $.ajax({
     url: "http://buzzwords.tladesignz.com/data.pl",
     dataType: "jsonp",
-    success: init
+    success: function(json) {
+      localStorage.clear();
+      localStorage["buzzwords"] = JSON.stringify(json);
+      init(json);
+    }
   });
 }
